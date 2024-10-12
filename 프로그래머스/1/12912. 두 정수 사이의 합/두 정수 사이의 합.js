@@ -1,3 +1,7 @@
 function solution(a, b) {
-    return [...Array(Math.abs(a - b) + 1).keys()].map(key => key + Math.min(a, b)).reduce((x,y) => x+y, 0);
+    let answer = 0;
+    for(let i = Math.min(a, b); i <= Math.max(a, b); i++) {
+        answer += i;
+    }
+    return answer;
 }

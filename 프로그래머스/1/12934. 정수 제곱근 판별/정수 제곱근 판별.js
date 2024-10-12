@@ -1,3 +1,4 @@
 function solution(n) {
-    return Number.isInteger(Math.sqrt(n)) ? Math.pow((Math.sqrt(n) + 1), 2) : -1;
+    const x = Math.sqrt(n);
+    return Number.isInteger(x) ? Math.pow(x + 1, 2) : -1;
 }

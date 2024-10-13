@@ -4,7 +4,6 @@ function cal(n, m) {
     while(i <= Math.min(n, m)) {
         if(n % i === 0 && m % i === 0) {
             gcd = i;
-            console.log(gcd);
         }
         i++;
     }

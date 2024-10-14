@@ -1,9 +1,8 @@
 function solution(k, score) {
     let result = [];
     let best = [];
-    let i = 0;
     
-    while(i < score.length) {
+    for(let i = 0; i < score.length; i++) {
         if(i < k) {
             best.push(score[i]);
         }
@@ -13,7 +12,6 @@ function solution(k, score) {
             }
         }
         result.push(Math.min(...best));
-        i++;
     }
     return result;
 }

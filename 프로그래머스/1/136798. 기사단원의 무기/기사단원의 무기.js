@@ -1,6 +1,5 @@
 function solution(number, limit, power) {
     let divCnt = [];
-    let i = 1;
     
     // 약수 배열 생성
     for(let num=1; num<=number; num++) {

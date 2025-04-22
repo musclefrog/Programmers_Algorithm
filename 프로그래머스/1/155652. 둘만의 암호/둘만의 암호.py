@@ -8,11 +8,9 @@ def solution(s, skip, index):
     for skip_ch in skip:
         alphabet.remove(skip_ch)
     
-    alphabet_cnt = 26 - len(skip)
-    
     # s의 각 문자 변경 후 answer에 append
     for ch in s:
-        ch = alphabet[((alphabet.index(ch) + index) % alphabet_cnt)]
+        ch = alphabet[((alphabet.index(ch) + index) % (26 - len(skip)))]
         answer.append(ch)
 
     return ''.join(answer)

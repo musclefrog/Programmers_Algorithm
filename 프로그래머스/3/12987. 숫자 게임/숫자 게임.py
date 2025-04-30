@@ -1,5 +1,3 @@
-from collections import deque
-
 def solution(A, B):
     answer = 0
     A = sorted(A, reverse=True)

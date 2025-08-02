@@ -1,14 +1,7 @@
-cnt = 0
-def dfs(numbers, target, idx, values):
-    global cnt
-    
-    if idx == len(numbers):
-        if values == target:
-            cnt += 1
-    else:
-        dfs(numbers, target, idx + 1, values + numbers[idx])
-        dfs(numbers, target, idx + 1, values - numbers[idx])    
+def dfs(numbers, step, total, target):
+    if step == len(numbers): return 1 if total == target else 0
+    return dfs(numbers, step + 1, total + numbers[step], target) + dfs(numbers, step + 1, total - numbers[step], target)
+
 
 def solution(numbers, target):
-    dfs(numbers, target, 0, 0)
-    return cnt
+    return dfs(numbers, 0, 0, target)

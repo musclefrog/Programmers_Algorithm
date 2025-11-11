@@ -1,32 +1,26 @@
 from itertools import permutations
-import math
 
 # 소수 판별 함수
-def isPrimeNumber(x):
-    if x < 2:
-        return False
-    for i in range(2, int(math.sqrt(x))+1):
-        if x % i == 0:
-            return False
+def checkPrime(n):
+    if n < 2: return False
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0: return False
+    
     return True
 
 def solution(numbers):
-    answer = 0
-    arr = []
+    answer = []
+    numbers = list(numbers)
+    num = []
     
-    # numbers 리스트의 모든 조합을 구함
-    for cnt in range(1, len(numbers) + 1):
-        arr.extend(map(''.join, list(permutations(numbers, cnt))))
-        
-    # 리스트 형 변환
-    arr = list(map(int, arr))
-    
-    # 중복 숫자 제거
-    wtf = set(arr)
+    # 순열 만들기
+    for i in range(1, len(numbers)+1):
+        num.append(list(permutations(numbers, i)))
+    num = [int(''.join(y)) for x in num for y in x] # 2차원 배열 flatten
     
     # 소수 판별
-    for num in wtf:
-        if isPrimeNumber(num):
-            answer += 1
-    
-    return answer
+    for i in num:
+        if checkPrime(i):
+            answer.append(i)
+            
+    return len(set(answer))
